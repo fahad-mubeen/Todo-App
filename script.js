@@ -3,6 +3,7 @@ function getTodosFromLocalStorage() {
 }
 
 let filterState = 'all';
+let idCount = 0;
 
 function addTodoToLocalStorage(todoObject) {
     const todos = getTodosFromLocalStorage();
@@ -118,7 +119,7 @@ function addNewTodo() {
     } 
     textInput.value = "";
     
-    const todoId = getTodosFromLocalStorage().todoList.length;
+    const todoId = idCount++;
     addTodoToLocalStorage({ "id": todoId, "text": todoText, "completed": false });
     
     if(filterState != 'completed') {

@@ -13,19 +13,17 @@
         <h1>Todo Application</h1>
 
         <div id="input-area">
-            <input type="text" id="input-text" placeholder="Write your next todo here">
-            <button id="submit-btn">Add Todo</button>
+            <input type="text" id="todoTextInput" placeholder="Write your next todo here">
+            <button id="submitButton">Add Todo</button>
         </div>
 
         <div id="filter-btn">
-            <button id="all-btn">All</button>
-            <button id="pending-btn">Pending</button>
-            <button id="completed-btn">Completed</button>
+            <button class="filterBtn" filterState="all">All</button>
+            <button class="filterBtn" filterState="pending">Pending</button>
+            <button class="filterBtn" filterState="completed"">Completed</button>
         </div>
 
-        <ul id="todo-list">
-            
-        </ul>
+        <ul id="todoList"></ul>
 
     </div>
 

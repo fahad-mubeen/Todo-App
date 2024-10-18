@@ -2,8 +2,11 @@ function getTodosFromLocalStorage() {
   return JSON.parse(localStorage.getItem('todos')) || { "todoList": [] };
 }
 
+function getIdCount(){
+    return JSON.parse(localStorage.getItem('idCount')) || 0;
+}
+
 let filterState = 'all';
-let idCount = 0;
 
 function addTodoToLocalStorage(todoObject) {
     const todos = getTodosFromLocalStorage();
@@ -119,7 +122,10 @@ function addNewTodo() {
     } 
     textInput.value = "";
     
-    const todoId = idCount++;
+    const todoId = getIdCount() + 1;
+    localStorage.setItem('idCount', JSON.stringify(todoId));
+
+
     addTodoToLocalStorage({ "id": todoId, "text": todoText, "completed": false });
     
     if(filterState != 'completed') {
